@@ -8,6 +8,7 @@ const Users = ({users, loading}) => {
   }else{
     return (
       <div style={userStyle}>
+        {/* On map les utilisateurs 1 a 1 et on les envoie au component user */}
         {users.map(user => (
             <UserItem key={user.id} user={user} />
         ))}

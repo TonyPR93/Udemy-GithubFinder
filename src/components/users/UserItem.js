@@ -1,6 +1,6 @@
 import React from 'react'
 
-
+// On recupere les données envoyés via le component Users
 const UserItem = ({user: {login, avatar_url, html_url}}) => {
 
 
