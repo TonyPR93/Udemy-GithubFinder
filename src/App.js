@@ -1,10 +1,12 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 
 import Navbar from "./components/layout/Navbar";
 import Users from "./components/users/Users";
 import Search from "./components/users/search";
 import { Alert } from "./components/layout/Alert";
+import { About } from "./components/pages/About";
 import axios from "axios";
 //Permet de fetch des datas
 
@@ -47,20 +49,34 @@ class App extends Component {
   render() {
     const { users, loading } = this.state;
     return (
-      <div className="App">
-        <Navbar />
-        <div className="container">
-          <Alert alert={this.state.alert} />
-          <Search
-            searchUsers={this.searchUsers} //On passe a Search la fonctions searchUsers a Search
-            clearUsers={this.clearUsers}
-            showClear={users.length > 0 ? true : false}
-            setAlert={this.setAlert}
-          />
-          <Users loading={loading} users={users} />
-          {/* On envoie au component users le tableau contenant TOUT les utilisateurs */}
+      <Router>
+        <div className="App">
+          <Navbar />
+          <div className="container">
+            <Alert alert={this.state.alert} />
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <Fragment>
+                    <Search
+                      searchUsers={this.searchUsers} //On passe a Search la fonctions searchUsers a Search
+                      clearUsers={this.clearUsers}
+                      showClear={users.length > 0 ? true : false}
+                      setAlert={this.setAlert}
+                    />
+                    <Users loading={loading} users={users} />
+                  </Fragment>
+                }
+              />
+
+              <Route path="/about" Component={About}></Route>
+            </Routes>
+
+            {/* On envoie au component users le tableau contenant TOUT les utilisateurs */}
+          </div>
         </div>
-      </div>
+      </Router>
     );
   }
 }
