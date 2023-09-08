@@ -1,10 +1,11 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 
 import Navbar from "./components/layout/Navbar";
-import Users from "./components/users/Users";
-import Search from "./components/users/search";
+import Home from "./components/pages/Home";
+import NotFound from "./components/pages/NotFound";
+
 import User from "./components/users/User";
 import { Alert } from "./components/layout/Alert";
 import { About } from "./components/pages/About";
@@ -23,21 +24,11 @@ const App = () => {
             <div className="container">
               <Alert />
               <Routes>
-                <Route
-                  path="/"
-                  element={
-                    <Fragment>
-                      <Search />
-                      <Users />
-                    </Fragment>
-                  }
-                />
-
+                <Route path="/" element={<Home />} />
                 <Route path="/about" Component={About}></Route>
                 <Route path={`/user/:login`} element={<User />} />
+                <Route path="/*" element={<NotFound />} />
               </Routes>
-
-              {/* On envoie au component users le tableau contenant TOUT les utilisateurs */}
             </div>
           </div>
         </Router>
