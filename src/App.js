@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from "react";
+import React, { Fragment } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 
@@ -10,46 +10,38 @@ import { Alert } from "./components/layout/Alert";
 import { About } from "./components/pages/About";
 
 import GithubState from "./context/github/GithubState";
+import AlertState from "./context/alert/AlertState";
 //Permet de fetch des datas
 
 const App = () => {
-  const [alert, setAlert] = useState(null);
-
-  //alert
-  const showAlert = (msg, type) => {
-    setAlert({ msg, type });
-    setTimeout(() => setAlert(null), 5000);
-  };
-
   return (
     <GithubState>
-      <Router>
-        <div className="App">
-          <Navbar />
-          <div className="container">
-            <Alert alert={alert} />
-            <Routes>
-              <Route
-                path="/"
-                element={
-                  <Fragment>
-                    <Search
-                      //On passe a Search la fonctions searchUsers a Search
-                      setAlert={showAlert}
-                    />
-                    <Users />
-                  </Fragment>
-                }
-              />
+      <AlertState>
+        <Router>
+          <div className="App">
+            <Navbar />
+            <div className="container">
+              <Alert />
+              <Routes>
+                <Route
+                  path="/"
+                  element={
+                    <Fragment>
+                      <Search />
+                      <Users />
+                    </Fragment>
+                  }
+                />
 
-              <Route path="/about" Component={About}></Route>
-              <Route path={`/user/:login`} element={<User />} />
-            </Routes>
+                <Route path="/about" Component={About}></Route>
+                <Route path={`/user/:login`} element={<User />} />
+              </Routes>
 
-            {/* On envoie au component users le tableau contenant TOUT les utilisateurs */}
+              {/* On envoie au component users le tableau contenant TOUT les utilisateurs */}
+            </div>
           </div>
-        </div>
-      </Router>
+        </Router>
+      </AlertState>
     </GithubState>
   );
 };
