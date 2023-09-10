@@ -1,5 +1,6 @@
 import React from "react";
 
+//Affichage d'un repo avec nom et lien
 const RepoItem = ({ repo }) => {
   return (
     <div className="card">

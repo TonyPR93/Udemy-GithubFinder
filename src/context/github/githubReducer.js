@@ -1,3 +1,8 @@
+/**
+ * C'est ici que la state changera uniquement,
+ *
+ * Import des actions
+ */
 import {
   SEARCH_USERS,
   SET_LOADING,
@@ -5,6 +10,7 @@ import {
   GET_USER,
   GET_REPOS,
 } from "../types";
+//Le commentaire suivant permet de "cacher" une erreur
 // eslint-disable-next-line
 export default (state, action) => {
   switch (action.type) {

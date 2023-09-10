@@ -1,3 +1,4 @@
+//Page static about
 import React, { Fragment } from "react";
 
 export const About = () => {

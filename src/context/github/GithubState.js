@@ -1,7 +1,15 @@
+/*Sert de controller pour la state, ici se font les appel API (axios)
+ * Ici on déclare la state initial
+ * On déclare des fonctions qui recupereront les données et feront appel au reducer
+ * C'est dans le reducer uniquement que la state se modifie !
+ */
+
 import React, { useReducer } from "react";
 import axios from "axios";
 import githubContext from "./githubContext";
 import githubReducer from "./githubReducer";
+
+//Les actions qui seront utilisées
 import {
   SEARCH_USERS,
   SET_LOADING,
@@ -10,6 +18,7 @@ import {
   GET_REPOS,
 } from "../types";
 
+//Debut de state
 const GithubState = (props) => {
   const initialState = {
     users: [],
@@ -21,6 +30,7 @@ const GithubState = (props) => {
   const [state, dispatch] = useReducer(githubReducer, initialState);
 
   //search Usears
+  //La valeur text est definit dans le submit
   const searchUsers = async (text) => {
     setLoading();
 
@@ -80,6 +90,7 @@ const GithubState = (props) => {
         getUserRepos,
       }}
     >
+      {/* Rend utilisable les fonctions déclarés plus haut, ainsi que les données de la state */}
       {props.children}
     </githubContext.Provider>
   );

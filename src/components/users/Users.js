@@ -1,3 +1,9 @@
+/**
+ * On récuperer les informations de la state 'users" du context qui contient le resultat de la recherche
+ * on map le resultat (une boucle) en utilisant le component UserItem.js qui permet d'afficher un display 1 à 1
+ * on garde l'id dans une value specifique
+ */
+
 import React, { useContext } from "react";
 import UserItem from "./UserItem";
 import GithubContext from "../../context/github/githubContext";
@@ -20,6 +26,7 @@ const Users = () => {
   }
 };
 
+//Exemple declaration css hors fichier
 const userStyle = {
   display: "grid",
   gridTemplateColumns: "repeat(3,1fr)",

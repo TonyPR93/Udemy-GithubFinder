@@ -1,4 +1,6 @@
 import React, { useContext, useState } from "react";
+
+//Appel des fonctions pour alert et github
 import GithubContext from "../../context/github/githubContext";
 import AlertContext from "../../context/alert/alertContext";
 
@@ -11,14 +13,16 @@ const Search = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     if (text === "") {
+      // ~Permet de lancer une alert
       alertContext.setAlert("Please enter something", "light");
     } else {
+      //Cherche les utilisateurs relatif a l'input
       githubContext.searchUsers(text);
       setText("");
     }
   };
 
-  const onChange = (e) => setText(e.target.value);
+  const onChange = (e) => setText(e.target.value); //Fonction propre a React, permet changer la valeur de l'input
 
   return (
     <div>

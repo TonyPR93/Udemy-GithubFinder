@@ -1,3 +1,4 @@
+//Changement de la state alert se fera ici
 import { SET_ALERT, REMOVE_ALERT } from "../types";
 
 // eslint-disable-next-line

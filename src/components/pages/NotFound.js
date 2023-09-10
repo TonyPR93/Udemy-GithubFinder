@@ -1,5 +1,5 @@
 import React from "react";
-
+//Les redirections de page se feront ici
 const NotFound = () => {
   return (
     <div>

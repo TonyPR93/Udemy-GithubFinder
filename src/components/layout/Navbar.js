@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
-
+//Page navbar avec Link et icon
 const Navbar = ({ icon, title }) => {
   return (
     <nav className="navbar bg-primary">

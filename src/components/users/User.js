@@ -7,7 +7,9 @@ import Repos from "../repos/Repos";
 
 const User = () => {
   //Ce sont encore des props repos et getuserrepos = app.js
-  const { login: userLogin } = useParams();
+  const { login: userLogin } = useParams(); //on utilise ce qui a été envoyé dans l'url
+
+  //Toute les variables qu'on utilisera d'user, comme cela on devra pas utiliser user.name, ... (doit avoir le même nom de variable que sur l'api)
   const {
     user: {
       name,
@@ -90,6 +92,7 @@ const User = () => {
         <div className="badge badge-light">Public repos: {public_repos}</div>
         <div className="badge badge-dark">Public gists: {public_gists}</div>
       </div>
+      {/* On envoit les repos pour les afficher 1 a 1 */}
       <Repos repos={repos} />
     </Fragment>
   );

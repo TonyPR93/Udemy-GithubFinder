@@ -14,6 +14,7 @@ const UserItem = ({ user: { login, avatar_url, html_url } }) => {
       <h3>{login}</h3>
 
       <div>
+        {/* A chaque fois qu'on cliquera, la route se chargera de display la page user */}
         <Link to={`/user/${login}`} className="btn btn-dark btn-sm my-1">
           more
         </Link>

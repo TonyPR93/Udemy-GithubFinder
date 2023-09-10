@@ -1,4 +1,13 @@
 import React, { useReducer } from "react";
+/*AlertState, alrtReducer, alertContext
+ *
+ *La state est initialisé ici.
+ *
+ *On reunit le context et le reducer ici
+ *
+ *Appel des actions dans le fichier types.js
+ *
+ */
 import alertContext from "./alertContext";
 import alertReducer from "./alertReducer";
 import { SET_ALERT, REMOVE_ALERT } from "../types";
